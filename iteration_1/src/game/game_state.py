@@ -1,14 +1,23 @@
+# '--------------------------------"""CURRENT GAME"""'----------------------------------------'
+import random
+
 class GameState(object):
     """
     This interface describes the game state which should be return after each game turn
     """
+    def __init__(self, player_name, hero, map):
+        self.player_name = player_name
+        self.hero = hero
+        self.map = map
+        self.current_case = 0
+        self.lancer_de = None
 
     def get_player_name(self):
         """
         Returns:
             str: The player name
         """
-        return
+        return self.player_name
 
     def get_game_id(self):
         """
@@ -22,35 +31,35 @@ class GameState(object):
         Returns:
             str: the game status
         """
-        return
+        return "IN_PROGRESS"
 
     def get_hero(self):
         """
         Returns:
             Hero: the current hero
         """
-        return
+        return self.hero
 
     def get_map(self):
         """
         Returns:
             Map: the current map
         """
-        return
+        return self.map
 
     def get_last_log(self):
         """
         Returns:
             str: the last log of the game. This log is displayed by the client after each game turn
         """
-        return
+        return self.current_case
 
     def get_current_case(self):
         """
         Returns:
             int: the current case index (base 1)
         """
-        return
+        return self.current_case
 
     def next_turn(self):
         """
@@ -60,4 +69,7 @@ class GameState(object):
             bool: True if the move can be execute, False if move is impossible
 
         """
-        return
+        self.lancer_de = random.randint(1, 6)
+        self.current_case += self.lancer_de
+
+        return self.current_case
