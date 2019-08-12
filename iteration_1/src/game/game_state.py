@@ -1,6 +1,7 @@
 # '--------------------------------"""CURRENT GAME"""'----------------------------------------'
 import random
 
+
 class GameState(object):
     """
     This interface describes the game state which should be return after each game turn
@@ -9,6 +10,7 @@ class GameState(object):
         self.player_name = player_name
         self.hero = hero
         self.map = map
+        self.game_status = "IN_PROGRESS"
         self.current_case = 0
         self.lancer_de = None
 
@@ -31,7 +33,8 @@ class GameState(object):
         Returns:
             str: the game status
         """
-        return "IN_PROGRESS"
+
+        return self.game_status
 
     def get_hero(self):
         """
@@ -71,5 +74,12 @@ class GameState(object):
         """
         self.lancer_de = random.randint(1, 6)
         self.current_case += self.lancer_de
+        game_map = self.get_map()
+        if self.current_case >= game_map.number_of_case:
+            self.game_status = "FINISHED"
+            return False
+        else:
+            return True
 
-        return self.current_case
+
+
