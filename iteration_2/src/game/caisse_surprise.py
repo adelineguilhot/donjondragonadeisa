@@ -61,8 +61,7 @@ class Caisse_surprise(object):
 
         position_potion_mineure = [7, 13, 28, 29, 33]
         for position in position_potion_mineure:
-            potion_mineure = cls(name="potion mineure", image=":chocolate_bar:", attack=1,
-                                             case_fix=position)
+            potion_mineure = cls(name="potion mineure", image=":chocolate_bar:", attack=1, case_fix=position)
             list_caisses_surprise.append(potion_mineure)
 
         position_potion_standard = [31, 39, 43]

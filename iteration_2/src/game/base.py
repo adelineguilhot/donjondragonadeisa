@@ -8,6 +8,7 @@ class Personnage:
         self.life = life
         self.attack = attack
 
+
     def get_name(self):
         """
             Returns
