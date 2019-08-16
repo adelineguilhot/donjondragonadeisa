@@ -88,12 +88,15 @@ class GameState(object):
 
             case_content = self.map.get_case_content(self.current_case - 1)
             case_brute = self.map.get_case(self.current_case - 1)
-            caisse_surprise_attack = self.hero.give_caisse_surprise_attack(case_brute)
-            caisse_surprise_life = self.hero.give_caisse_surprise_life(case_brute)
-
             self.log.append("Contenu de la case courante : {}".format(case_content))
-            self.log.append("Votre personnage {} a gagné : {} points d'attaque et {} points de vie"
-                            .format(self.hero.name, caisse_surprise_attack, caisse_surprise_life))
+            if case_brute != '':
+                caisse_surprise_attack = self.hero.give_caisse_surprise_attack(case_brute)
+                caisse_surprise_life = self.hero.give_caisse_surprise_life(case_brute)
+                self.log.append("Votre personnage {} a gagné : {} points d'attaque et {} points de vie"
+                                .format(self.hero.name, caisse_surprise_attack, caisse_surprise_life))
+
+
+
 
 
 
