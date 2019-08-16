@@ -17,8 +17,8 @@ class WarriorsAPI(object):
         """On instancie"""
         """Création d'une boite vide ou l'on peux créer des personnages"""
 
-        warrior = Hero(name="warrior", image=":man_mage:", life=5, attack=5)
-        wizard = Hero(name="wizard", image=":elf:", life=3, attack=8)
+        warrior = Hero(name="warrior", image=":man_mage:", life=5, attack=5, max_attack=10, max_life=10)
+        wizard = Hero(name="wizard", image=":elf:", life=3, attack=8, max_attack=15, max_life=6)
         list_heroes = [warrior, wizard]
 
         return list_heroes

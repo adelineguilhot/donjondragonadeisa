@@ -6,6 +6,7 @@ class Person(object):
         self.life = life
         self.attack = attack
 
+
     def get_name(self):
             """
             Returns
@@ -33,10 +34,3 @@ class Person(object):
             int: the attack level of the hero
         """
         return self.attack
-
-# CLASSE ENFANT
-# class Children(Person):
-#     def __init__(self, name, image, life):
-#         Person.__init__(self, name, image)
-#         self.blabla =
-#     child = Children("", "")
