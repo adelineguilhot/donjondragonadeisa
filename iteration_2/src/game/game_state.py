@@ -56,7 +56,7 @@ class GameState(object):
         Returns:
             str: the last log of the game. This log is displayed by the client after each game turn
         """
-        return self.log
+        return str(self.log)
 
     def get_current_case(self):
         """
@@ -85,4 +85,9 @@ class GameState(object):
 
             content_case = self.map.get_case_content(self.current_case - 1)
             self.log.append("Le contenu de la case ou vous êtes est : {}".format(content_case))
+
+            case_brut = self.map.get_case_current(self.current_case - 1)
+            bonus_attack_apply = self.hero.give_boxes_attack(case_brut)
+            bonus_life_apply = self.hero.give_boxes_life(case_brut)
+            self.log.append("Le hero {} à obtenu {} d'attaque et {} de vie".format(self.hero.name, bonus_attack_apply, bonus_life_apply))
             return True

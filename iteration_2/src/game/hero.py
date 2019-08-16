@@ -10,7 +10,7 @@ class Hero(Person):
         self.max_attack = max_attack
         self.max_life = max_life
 
-    def give_boxes(self, box):
+    def give_boxes_attack(self, box):
         """
         applique les bonus pour chaques personnages
         """
@@ -20,11 +20,6 @@ class Hero(Person):
                     self.attack += box.attack
                 else:
                     self.attack = self.max_attack
-            if box.name in ["minot_potion", "standard_potion", "big_potion"]:
-                self.life <= self.max_attack
-                self.life += box.attack
-            else:
-                self.life = self.max_life
 
         if self.name == "wizard":
             if box.name in ["eclair", "fireball"]:
@@ -32,8 +27,21 @@ class Hero(Person):
                     self.attack += box.attack
                 else:
                     self.attack = self.max_attack
-            if box.name in ["minot_potion", "standard_potion", "big_potion"]:
-                self.life <= self.max_attack
+
+        return self.attack
+
+    def give_boxes_life(self, box):
+
+        if box.name in ["minot_potion", "standard_potion", "big_potion"]:
+            if self.life <= self.max_attack:
                 self.life += box.attack
             else:
                 self.life = self.max_life
+
+        if box.name in ["minot_potion", "standard_potion", "big_potion"]:
+            if self.life <= self.max_attack:
+                self.life += box.attack
+            else:
+                self.life = self.max_life
+
+        return self.life

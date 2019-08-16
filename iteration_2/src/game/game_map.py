@@ -50,6 +50,11 @@ class Map(object):
             case_content = "{}, {}, attack points {}".format(case_content.get_name(), case_content.get_image(), case_content.get_attack_level())
             return case_content
 
+    def get_case_current(self, case):
+
+        return self.map_list[case]
+
+
     @classmethod
     def get_maps(cls):
 
