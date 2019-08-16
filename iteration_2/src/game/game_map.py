@@ -30,6 +30,14 @@ class Map(object):
                                             courante_case.get_attack_level())
             return courante_case
 
+    def get_case(self, case):
+        """
+        Donne le contenu brut de la case (image, nom...)
+
+        """
+
+        return self.map_list[case]
+
     def get_name(self):
         """
         Returns

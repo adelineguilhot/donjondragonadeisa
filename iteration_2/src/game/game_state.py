@@ -42,6 +42,7 @@ class GameState(object):
         Returns:
             Hero: the current hero
         """
+
         return self.hero
 
     def get_map(self):
@@ -56,13 +57,14 @@ class GameState(object):
         Returns:
             str: the last log of the game. This log is displayed by the client after each game turn
         """
-        return self.log
+
+        return str(self.log)
 
     def get_current_case(self):
         """
         Returns:
-            int: the current case index (base 1)
-        """
+            int: the current case index (base 1)        """
+
         return self.current_case
 
     def next_turn(self):
@@ -85,8 +87,14 @@ class GameState(object):
         else:
 
             case_content = self.map.get_case_content(self.current_case - 1)
+            case_brute = self.map.get_case(self.current_case - 1)
+            caisse_surprise_attack = self.hero.give_caisse_surprise_attack(case_brute)
+            caisse_surprise_life = self.hero.give_caisse_surprise_life(case_brute)
+
             self.log.append("Contenu de la case courante : {}".format(case_content))
-            return True
+            self.log.append("Votre personnage {} a gagné : {} points d'attaque et {} points de vie"
+                            .format(self.hero.name, caisse_surprise_attack, caisse_surprise_life))
+
 
 
 
